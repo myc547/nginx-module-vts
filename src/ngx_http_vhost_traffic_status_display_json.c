@@ -59,7 +59,6 @@ ngx_http_vhost_traffic_status_display_set_server_node(
     vtscf = ngx_http_get_module_loc_conf(r, ngx_http_vhost_traffic_status_module);
 
     tmp = *key;
-
     (void) ngx_http_vhost_traffic_status_node_position_key(&tmp, 1);
 
     rc = ngx_http_vhost_traffic_status_escape_json_pool(r->pool, &dst, &tmp);
@@ -299,8 +298,6 @@ ngx_http_vhost_traffic_status_display_set_filter(ngx_http_request_t *r,
                 }
             }
             key = keys[i].key;
-
-            printf("%s\n", key);
 
             rc = ngx_http_vhost_traffic_status_filter_get_nodes(r, &filter_nodes, &key, node);
 

@@ -44,13 +44,13 @@ ngx_http_vhost_traffic_status_escape_json(u_char *dst, u_char *src, size_t size)
         if (ch > 0x1f) {
 
             if (ch == '\\' || ch == '"') {
-                *dst++ = '\\';
+                *dst++ = '\\\\';
             }
 
             *dst++ = ch;
 
         } else {
-            *dst++ = '\\'; *dst++ = 'u'; *dst++ = '0'; *dst++ = '0';
+            *dst++ = '\\\\'; *dst++ = 'u'; *dst++ = '0'; *dst++ = '0';
             *dst++ = '0' + (ch >> 4);
 
             ch &= 0xf;
